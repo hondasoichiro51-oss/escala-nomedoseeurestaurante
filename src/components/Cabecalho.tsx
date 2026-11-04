@@ -10,21 +10,25 @@ export function Cabecalho() {
   const caminho = usePathname();
   return (
     <header
-      className="sticky top-0 z-10 text-white shadow"
-      style={{ background: "var(--cor-principal)" }}
+      className="sticky top-0 z-10 text-white shadow-md"
+      style={{
+        background: "var(--cor-principal)",
+        borderBottom: "3px solid var(--cor-detalhe)",
+      }}
     >
-      <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-3">
+      <Link href="/" className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-3">
         {identidade.logo ? (
           <Image
             src={identidade.logo}
-            alt={identidade.nome}
-            width={36}
-            height={36}
-            className="h-9 w-9 rounded-md bg-white object-contain p-0.5"
+            alt={`Logo ${identidade.nome}`}
+            width={48}
+            height={48}
+            priority
+            className="h-12 w-12 rounded-full bg-white shadow"
           />
         ) : null}
-        <span className="text-lg font-bold">{identidade.nome}</span>
-      </div>
+        <span className="fonte-titulo text-xl font-bold tracking-wide">{identidade.nome}</span>
+      </Link>
       <nav className="mx-auto flex max-w-3xl gap-1 overflow-x-auto px-2 pb-2">
         {menu.map((item) => {
           const ativo = caminho === item.href;
@@ -32,9 +36,10 @@ export function Cabecalho() {
             <Link
               key={item.href}
               href={item.href}
-              className={`whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold ${
-                ativo ? "bg-white/20" : "hover:bg-white/10"
+              className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold ${
+                ativo ? "bg-white" : "hover:bg-white/15"
               }`}
+              style={ativo ? { color: "var(--cor-principal)" } : undefined}
             >
               {item.rotulo}
             </Link>

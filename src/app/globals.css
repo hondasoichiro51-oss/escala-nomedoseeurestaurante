@@ -2,14 +2,18 @@
 
 /* Cores vêm de src/config/identidade.ts e são aplicadas no layout. */
 :root {
-  --cor-principal: #1f3a5f;
-  --cor-secundaria: #f4f1ea;
-  --cor-texto: #1a1a1a;
+  --cor-principal: #8a5a1c;
+  --cor-secundaria: #f9f5f0;
+  --cor-detalhe: #d9b45a;
+  --cor-texto: #1c1917;
+  /* Fonte com serifa para títulos, parecida com a do logo (já vem no celular). */
+  --fonte-titulo: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
 }
 
 @theme inline {
   --color-principal: var(--cor-principal);
   --color-secundaria: var(--cor-secundaria);
+  --color-detalhe: var(--cor-detalhe);
 }
 
 html,
@@ -20,20 +24,32 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+h1,
+h2,
+.fonte-titulo {
+  font-family: var(--fonte-titulo);
+  letter-spacing: 0.01em;
+}
+
 /* Botões e campos grandes, pensados para o celular. */
 .botao {
-  @apply inline-flex items-center justify-center rounded-xl px-4 py-3 text-base font-semibold text-white shadow-sm active:scale-[0.98] disabled:opacity-50;
+  @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-base font-semibold text-white shadow-sm active:scale-[0.98] disabled:opacity-50;
   background: var(--cor-principal);
 }
 .botao-secundario {
-  @apply inline-flex items-center justify-center rounded-xl border px-4 py-3 text-base font-semibold shadow-sm active:scale-[0.98] disabled:opacity-50;
+  @apply inline-flex items-center justify-center rounded-full border-2 px-5 py-3 text-base font-semibold active:scale-[0.98] disabled:opacity-50;
   border-color: var(--cor-principal);
   color: var(--cor-principal);
   background: white;
 }
 .campo {
-  @apply w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base outline-none focus:border-neutral-500;
+  @apply w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-base outline-none;
+}
+.campo:focus {
+  border-color: var(--cor-principal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cor-detalhe) 35%, transparent);
 }
 .cartao {
-  @apply rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm;
+  @apply rounded-3xl border border-stone-200/70 bg-white p-4;
+  box-shadow: 0 2px 10px rgb(60 40 10 / 0.06);
 }

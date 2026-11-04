@@ -13,6 +13,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   const estilo = {
     "--cor-principal": identidade.corPrincipal,
     "--cor-secundaria": identidade.corSecundaria,
+    "--cor-detalhe": identidade.corDetalhe,
   } as React.CSSProperties;
 
   return (

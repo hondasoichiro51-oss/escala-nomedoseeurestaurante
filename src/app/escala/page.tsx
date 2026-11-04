@@ -201,7 +201,7 @@ export default function EscalaDaSemana() {
         todos os dias.
       </p>
 
-      <div className={`overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-sm ${carregando ? "opacity-60" : ""}`}>
+      <div className={`overflow-x-auto rounded-3xl border border-stone-200/70 bg-white shadow-sm ${carregando ? "opacity-60" : ""}`}>
         <table className="w-full border-collapse text-left">
           <thead>
             <tr>
